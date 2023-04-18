@@ -1,31 +1,20 @@
 import { Form } from "./Form"
 import { useTodoList } from '../hooks/useTodoList';
+import { Tasks } from "./Tasks";
 
 export const Main = () => {
 
-    const { handleNewTodo,
-        handleDeleteTodo,
-        handleToggleTodo,
+    const {
+        handleNewTodo,
         toDos } = useTodoList()
 
-    const getToDo = (toDo) => {
-        console.log('form data', toDo)
-        handleNewTodo(toDo);
-    };
+    const getToDo = (toDo) => handleNewTodo(toDo);;
 
     return (
         <>
             <Form getToDo={getToDo} />
 
-            {
-                toDos.map(todo => (
-                    <div key={todo.id} >
-                        <p>{todo.title}</p>
-                        <p>{todo.description}</p>
-                    </div>
-                ))
-            }
-
+            <Tasks toDos={toDos} />
 
         </>
     )

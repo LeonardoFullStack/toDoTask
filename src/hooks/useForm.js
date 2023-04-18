@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState } from 'react';
+
 
 export const useForm = (initialState) => {
 
@@ -15,7 +16,8 @@ export const useForm = (initialState) => {
         }
 
         return data;
-    }
+    };
+
 
     const handlerSubmit = (ev, getToDo) => {
         ev.preventDefault();
@@ -27,8 +29,8 @@ export const useForm = (initialState) => {
 
         ev.target.reset();
 
+    };
 
-    }
 
     const handlerChange = ({ target }) => {
 
@@ -37,11 +39,11 @@ export const useForm = (initialState) => {
             [target.name]: target.value
         });
 
-    }
+    };
 
     return {
         handlerSubmit,
         handlerChange
-    }
+    };
 
-}
+};

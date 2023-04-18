@@ -1,14 +1,14 @@
-import { useReducer } from 'react'
-import { toDoReducer } from '../reducers/toDoReducer'
-import { getLocal } from '../helpers/localStorage'
+import { useReducer } from 'react';
+import { toDoReducer } from '../reducers/toDoReducer';
+import { getLocal } from '../helpers/localStorage';
 
-const init = () => {
-    return getLocal();
-}
+
+const init = () => getLocal();
 
 export const useTodoList = () => {
 
     const [toDos, dispatch] = useReducer(toDoReducer, [], init);
+
 
     const handleNewTodo = ({ title, description }) => {
 
@@ -18,28 +18,37 @@ export const useTodoList = () => {
             description,
             done: false,
             date: new Date()
-        }
+        };
 
         const action = {
             type: '[TODO] add todo',
             payload: newToDo
-        }
-        
+        };
+
         dispatch(action);
     }
 
+
     const handleDeleteTodo = (id) => {
 
+        const action = {
+            type: '[TODO] delete todo',
+            payload: id
+        };
+
+        dispatch(action);
     }
+
 
     const handleToggleTodo = (id) => {
 
     }
+
 
     return {
         toDos,
         handleDeleteTodo,
         handleNewTodo,
         handleToggleTodo
-    }
-}
+    };
+};

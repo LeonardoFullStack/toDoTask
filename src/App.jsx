@@ -5,14 +5,16 @@ function App() {
   return (
     <>
       <header>
-
+        <p>Práctica ToDoList</p>
       </header>
 
       <main>
         <Main />
       </main>
 
-      <footer></footer>
+      <footer>
+        <p>Práctica ToDoList</p>
+      </footer>
     </>
   )
 }

@@ -7,24 +7,30 @@ export const Form = ({ getToDo }) => {
         handlerSubmit } = useForm('');
 
     return (
-        <form onSubmit={(ev) => handlerSubmit(ev, getToDo)} >
-            <input
-                type="text"
-                name="title"
-                id="title"
-                placeholder="Título"
-                onChange={handlerChange}
-            />
+        <section>
+            <h2>Lista de tareas</h2>
 
-            <textarea
-                name="description"
-                id="description"
-                placeholder="Descripción"
-                onChange={handlerChange}
-            ></textarea>
+            <h3>Añadir tarea</h3>
+            <form onSubmit={(ev) => handlerSubmit(ev, getToDo)} >
+                <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="Tarea"
+                    onChange={handlerChange}
+                />
 
-            <input type="submit" value="Enviar" />
+                <textarea
+                    name="description"
+                    id="description"
+                    placeholder="Descripción"
+                    onChange={handlerChange}
+                ></textarea>
 
-        </form>
+                <input type="submit" value="Añadir Tarea" />
+
+            </form>
+
+        </section>
     )
 }
