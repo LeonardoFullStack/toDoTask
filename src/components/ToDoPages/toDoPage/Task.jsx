@@ -3,7 +3,7 @@ export const Task = ({ id, title, description, done, handleDeleteTodo, handleTog
 
     return (
 
-        <article className={done ? 'color-gris' : ''}>
+        <article className={done ? 'artTask color-gris' : 'artTask'}>
 
             <div>
                 <p className="bold">{title}</p>

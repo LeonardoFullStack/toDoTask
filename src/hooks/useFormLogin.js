@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
 
-export const useForm = (initialState) => {
+export const useFormLogin = (initialState) => {
 
     const [form, setForm] = useState(initialState);
 
     const [validate, setValidate] = useState({});
+
 
     const serializeForm = (serialForm) => {
 
@@ -20,40 +21,38 @@ export const useForm = (initialState) => {
         return data;
     };
 
-    
-    const validateForm = (data, toDos) => {
 
-        let title, description, exists, rslt = true;
+    const validateForm = (data) => {
 
-        const toDoExists = toDos.find(toDo => toDo.title.toLowerCase() == data.title.toLowerCase());
+        let email, password, rslt = true;
 
-        if (data.title == '') title = 'El título no puede estar vacío'
+        const testEmail = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
-        if (data.description == '') description = 'El campo descripción no puede estar vacío'
+        if (data.email == '' || !testEmail.test(data.email)) email = 'Debes escribir un email válido'
 
-        if (toDoExists) exists = 'Ya existe una tarea con ese nombre...'
+        if (data.password == '') password = 'La contraseña es obligatoria'
+
 
         setValidate({
-            exists,
-            title,
-            description
+            email,
+            password
         })
 
-        if (toDoExists || data.title == '' || data.description == '') rslt = false
+        if (data.email == '' || data.password == '') rslt = false
 
         return rslt
     }
 
 
-    const handlerSubmit = (ev, handleNewTodo, toDos) => {
+    const handlerSubmit = (ev) => {
         ev.preventDefault();
 
         const data = serializeForm(ev.target);
 
-        const validateOk = validateForm(data, toDos);
+        const validateOk = validateForm(data);
         if (!validateOk) return
 
-        handleNewTodo(data);
+
         setForm(data);
 
         ev.target.reset();

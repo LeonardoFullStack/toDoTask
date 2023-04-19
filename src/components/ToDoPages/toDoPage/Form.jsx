@@ -1,4 +1,4 @@
-import { useForm } from "../hooks/useForm";
+import { useForm } from "../../../hooks/useForm";
 
 export const Form = ({ handleNewTodo, toDos }) => {
 
@@ -13,7 +13,7 @@ export const Form = ({ handleNewTodo, toDos }) => {
 
             <h3>Añadir tarea</h3>
 
-            <form onSubmit={(ev) => handlerSubmit(ev, handleNewTodo, toDos)} >
+            <form id="formToDo" onSubmit={(ev) => handlerSubmit(ev, handleNewTodo, toDos)} >
                 <input
                     type="text"
                     name="title"
@@ -22,7 +22,12 @@ export const Form = ({ handleNewTodo, toDos }) => {
                     autoFocus
                     onChange={handlerChange}
                 />
-                <p className="error">{validate.title != '' && validate.title}</p>
+                {validate.title &&
+                    <p className="error">{validate.title}</p>
+                }
+                {validate.exists &&
+                    <p className="error">{validate.exists}</p>
+                }
 
                 <textarea
                     name="description"
