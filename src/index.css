@@ -28,7 +28,7 @@ header p {
 }
 
 main {
-    min-height: calc(95vh - 120px);
+    min-height: 75vh;
     overflow-y: scroll;
     max-width: 992px;
     margin: 0 auto;
@@ -109,7 +109,7 @@ h3 {
 
 /* NAV ****************/
 nav {
-    margin-top: 5px;
+    margin-top: 15px;
     display: flex;
     text-align: center;
     justify-content: space-around;

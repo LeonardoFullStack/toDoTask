@@ -10,6 +10,11 @@ export const NavBar = () => {
             >Home
             </NavLink>
 
+            <NavLink to='/todo'
+                className={({ isActive }) => `nav-link ${isActive ? 'isActive' : ''}`}
+            >ToDo
+            </NavLink>
+
             <NavLink to='/products'
                 className={({ isActive }) => `nav-link ${isActive ? 'isActive' : ''}`}
             >Productos
