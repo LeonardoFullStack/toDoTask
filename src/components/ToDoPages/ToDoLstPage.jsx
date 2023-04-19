@@ -1,8 +1,8 @@
-import { Form } from "./Form"
-import { useTodoList } from '../hooks/useTodoList';
-import { Tasks } from "./Tasks";
+import { Form } from "./toDoPage/Form"
+import { useTodoList } from '../../hooks/useTodoList';
+import { Tasks } from "./toDoPage/Tasks";
 
-export const Main = () => {
+export const ToDoLstPage = () => {
 
     const {
         handleNewTodo,
