@@ -1,6 +1,6 @@
 import { useForm } from "../hooks/useForm";
 
-export const Form = ({ getToDo }) => {
+export const Form = ({ handleNewTodo }) => {
 
     const {
         handlerChange,
@@ -11,8 +11,8 @@ export const Form = ({ getToDo }) => {
             <h2>Lista de tareas</h2>
 
             <h3>Añadir tarea</h3>
-            
-            <form onSubmit={(ev) => handlerSubmit(ev, getToDo)} >
+
+            <form onSubmit={(ev) => handlerSubmit(ev, handleNewTodo)} >
                 <input
                     type="text"
                     name="title"

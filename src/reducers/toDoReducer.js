@@ -13,9 +13,14 @@ export const toDoReducer = (state = [], action) => {
             break;
 
         case '[TODO] toggle todo':
-            newState = state.map(toDo =>
-                toDo.id == action.payload.id ? toDo.done = !toDo.done : toDo.done
+            newState = state;
+            
+            console.log('toggle', newState)
+            
+            newState.map(toDo =>
+                toDo.id == action.payload.id ? toDo.done = true : false
             )
+            
             console.log('toggle desp', newState)
             break;
 

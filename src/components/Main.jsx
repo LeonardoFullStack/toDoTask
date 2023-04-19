@@ -10,12 +10,12 @@ export const Main = () => {
         handleToggleTodo,
         toDos } = useTodoList()
 
-    const getToDo = (toDo) => handleNewTodo(toDo);;
+    // const getToDo = (toDo) => handleNewTodo(toDo);
 
     return (
         <>
             <Form
-                getToDo={getToDo}
+                handleNewTodo={handleNewTodo}
             />
 
             <Tasks
