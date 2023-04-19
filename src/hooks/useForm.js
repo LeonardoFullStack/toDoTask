@@ -5,6 +5,8 @@ export const useForm = (initialState) => {
 
     const [form, setForm] = useState(initialState);
 
+    const [validate, setValidate] = useState({});
+
     const serializeForm = (serialForm) => {
 
         const data = [];
@@ -19,12 +21,26 @@ export const useForm = (initialState) => {
     };
 
 
-    const handlerSubmit = (ev, getToDo) => {
+    const handlerSubmit = (ev, handleNewTodo, toDos) => {
         ev.preventDefault();
 
         const data = serializeForm(ev.target);
 
-        getToDo(data);
+        setValidate({
+            title: data.title === '' ? 'El título no puede estar vacío' : null,
+            description: data.description === '' ? 'El campo descripción no puede estar vacío' : null
+        })
+
+        if (data.title == '' || data.description == '') return
+
+        const exists = toDos.find(toDo => toDo.title == data.title);
+
+        if (exists) {
+            setValidate({ title: 'El título ya existe' })
+            return
+        }
+
+        handleNewTodo(data);
         setForm(data);
 
         ev.target.reset();
@@ -34,6 +50,8 @@ export const useForm = (initialState) => {
 
     const handlerChange = ({ target }) => {
 
+
+
         setForm({
             ...form,
             [target.name]: target.value
@@ -41,9 +59,14 @@ export const useForm = (initialState) => {
 
     };
 
+    // useEffect(() => {
+    //     handlerSubmit();
+    // }, [])
+
     return {
         handlerSubmit,
-        handlerChange
+        handlerChange,
+        validate
     };
 
 };

@@ -13,15 +13,16 @@ export const toDoReducer = (state = [], action) => {
             break;
 
         case '[TODO] toggle todo':
-            newState = state;
-            
-            console.log('toggle', newState)
-            
-            newState.map(toDo =>
-                toDo.id == action.payload.id ? toDo.done = true : false
-            )
-            
-            console.log('toggle desp', newState)
+            newState = [...state];
+
+            const ind = newState.findIndex(toDo => toDo.id == action.payload);
+
+            const newTodo = {
+                ...state[ind],
+                done: !state[ind].done
+            }
+
+            newState.splice(ind, 1, newTodo);
             break;
 
         default:

@@ -26,6 +26,8 @@ header {
 main {
     min-height: 100vh;
     overflow-y: scroll;
+    max-width: 992px;
+    margin:0 auto;
 }
 
 h2 {
@@ -72,6 +74,11 @@ article {
     padding: 3px;
     border: 1px solid lightgrey;
 }
+ article:nth-child(even) {
+    background-color: lightgray
+  }
+  
+
 
 button {
     cursor: pointer;
@@ -109,5 +116,10 @@ header p {
 }
 
 .color-gris {
-    color: lightgray;
+    color: darkgray;
+}
+
+.error {
+    color:red;
+    font-style: italic;
 }
