@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header,
+footer {
+    width: 100%;
+    background-color: rgb(25, 135, 84);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+header {
+    font-size: 1.5em;
+    font-weight: 500;
+    padding: 25px;
+}
+
+main {
+    min-height: 100vh;
+    overflow-y: scroll;
+    max-width: 992px;
+    margin:0 auto;
+}
+
+h2 {
+    text-align: center;
+    padding: 15px;
+}
+
+h3 {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid lightgrey;
+}
+
+textarea {
+    height: 200px;
+}
+
+input[type="submit"] {
+    background-color: rgb(25, 135, 84);
+    border: none;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+
+section {
+    width: 80%;
+    margin: 10px auto;
+}
+
+article {
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr 0.1fr 0.1fr;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3px;
+    border: 1px solid lightgrey;
+}
+ article:nth-child(even) {
+    background-color: lightgray
+  }
+  
+
+
+button {
+    cursor: pointer;
+    justify-self: center;
+    padding: 5px 10px;
+    margin: 0 2px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+p {
+    padding-left:  5px;
+    font-size: 0.7em;
+}
+
+header p {
+    font-size: 1.6em;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.eliminar {
+    background-color: red;
+}
+
+.pendiente {
+    background-color: rgb(25, 135, 84);
+}
+
+.finalizada {
+    background-color: black;
+}
+
+.color-gris {
+    color: darkgray;
+}
+
+.error {
+    color:red;
+    font-style: italic;
+}
