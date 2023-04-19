@@ -24,10 +24,10 @@ header {
 }
 
 main {
-    min-height: 100vh;
+    min-height: calc(100vh - 130px);
     overflow-y: scroll;
     max-width: 992px;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 h2 {
@@ -74,10 +74,11 @@ article {
     padding: 3px;
     border: 1px solid lightgrey;
 }
- article:nth-child(even) {
+
+article:nth-child(even) {
     background-color: lightgray
-  }
-  
+}
+
 
 
 button {
@@ -91,7 +92,7 @@ button {
 }
 
 p {
-    padding-left:  5px;
+    padding-left: 5px;
     font-size: 0.7em;
 }
 
@@ -120,6 +121,6 @@ header p {
 }
 
 .error {
-    color:red;
+    color: red;
     font-style: italic;
 }
