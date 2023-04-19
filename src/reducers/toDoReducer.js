@@ -6,20 +6,24 @@ export const toDoReducer = (state = [], action) => {
     switch (action.type) {
         case '[TODO] add todo':
             newState = [...state, action.payload];
-            setLocal(newState);
-            return newState;
+            break;
 
         case '[TODO] delete todo':
-            newState = state.filter(toDo => toDo.id != action.payload)
-            setLocal(newState);
-            return newState;
+            newState = state.filter(toDo => toDo.id != action.payload);
+            break;
 
         case '[TODO] toggle todo':
-            //cambiará la propiedad done de true a false o de false a true
-            return
+            newState = state.map(toDo =>
+                toDo.id == action.payload.id ? toDo.done = !toDo.done : toDo.done
+            )
+            console.log('toggle desp', newState)
+            break;
 
         default:
-            return state
+            newState = state;
+            break;
     }
 
+    setLocal(newState);
+    return newState;
 }

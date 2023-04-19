@@ -88,6 +88,10 @@ p {
     font-size: 0.7em;
 }
 
+header p {
+    font-size: 1.6em;
+}
+
 .bold {
     font-weight: bold;
 }
