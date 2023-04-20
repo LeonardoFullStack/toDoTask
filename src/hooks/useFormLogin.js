@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../contexts/UserContext';
+import { useNavigate  } from 'react-router-dom'
 
 
 export const useFormLogin = (initialState) => {
@@ -7,6 +9,16 @@ export const useFormLogin = (initialState) => {
 
     const [validate, setValidate] = useState({});
 
+    const { user, setUser } = useContext(UserContext);
+
+    const navigate = useNavigate();
+
+    const userTemplate = {
+        id:1,
+        name:'paco',
+        password:123,
+        email:'paco@gmail.com'
+    }
 
     const serializeForm = (serialForm) => {
 
@@ -48,14 +60,22 @@ export const useFormLogin = (initialState) => {
         ev.preventDefault();
 
         const data = serializeForm(ev.target);
+        
 
         const validateOk = validateForm(data);
         if (!validateOk) return
 
+        if (data.email != userTemplate.email || data.password != userTemplate.password ) {
+           setValidate({email: 'El usuario y la  contraseña no coincide'})
+           ev.target.password.value=''
+           return
+        } 
 
+        setUser(userTemplate)
         setForm(data);
 
-        ev.target.reset();
+        navigate('/todo');
+
     };
 
 
